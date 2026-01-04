@@ -1,6 +1,6 @@
 import './App.css'
 
-
+// Profile component
 function Profile() {
   return (
     <img
@@ -12,9 +12,12 @@ function Profile() {
 
 function App() {
   return (
+    // Jsx syntax
+    <>
     <div>
       <Profile />
     </div>
+    </>
   )
 }
 
