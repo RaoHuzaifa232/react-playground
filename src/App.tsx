@@ -41,10 +41,11 @@ const cars: Car[] = [
     image: "data:image/jpeg;base64,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", // example Tesla Model 3 from Pixabay :contentReference[oaicite:4]{index=4}
   },
 ];
+
 function Avatar({ car, size }: { car: Car; size: number }) {
   return (
     <img
-      className="avatar"
+      className="rounded-lg shadow-md object-cover hover:scale-110 hover:shadow-2xl transition-all duration-300 ease-in-out cursor-pointer"
       src={car.image}
       alt={car.model}
       width={size}
@@ -57,41 +58,56 @@ function Avatar({ car, size }: { car: Car; size: number }) {
 function Profile() {
   return (
     // Passing props to Avatar component
-    <Avatar car={car}
-      size={100} />
+    <div className="flex items-center justify-center p-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg">
+      <div className="text-center rounded-lg p-4 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl">
+        <Avatar car={car} size={100} />
+        <h2 className="mt-4 text-2xl font-bold text-gray-800">{car.brand}</h2>
+        <p className="text-indigo-600 font-semibold">{car.model}</p>
+      </div>
+    </div>
   );
 }
-
 
 function App() {
   // Mapping through the cars array to create a list of car details
   const carList = cars.map((carItem, index) => (
-    <div key={index}>
-      <h3>{carItem.brand} {carItem.model}</h3>
+    <div
+      key={index}
+      className="bg-white rounded-lg shadow-lg p-6 hover:shadow-2xl hover:bg-indigo-50 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 cursor-pointer group"
+    >
+      <h3 className="text-xl font-bold text-gray-800 mb-4">
+        {carItem.brand} {carItem.model}
+      </h3>
       {/* Passing props */}
       <Avatar car={carItem} size={80} />
-      <p>Year: {carItem.year}</p>
-      <br />
+      <p className="mt-4 text-lg text-gray-600">
+        <span className="font-semibold text-indigo-600">Year:</span> {carItem.year}
+      </p>
     </div>
   ));
 
   return (
     // Jsx syntax
-    <>
-      <div>
-        <Profile />
-        <br />
-        {/* Js onject accessing */}
-        <h1>{car.brand} {car.model}</h1>
-        <h2>Year: {car.year}</h2>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-indigo-900 to-black p-8 transition-all duration-1000 hover:from-gray-800 hover:via-purple-900">
+      <div className="max-w-7xl mx-auto">
+        {/* Main Profile Section */}
+        <div className="mb-12">
+          <Profile />
+        </div>
+
+        {/* Car List Section */}
+        <div className="mt-12">
+          <h2 className="text-4xl font-bold text-white mb-8 hover:text-indigo-300 transition-colors duration-300">
+            Our Car Collection
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Car list */}
+            {carList}
+          </div>
+        </div>
       </div>
-      <div>
-        <h2>Car List</h2>
-        {/* Car list */}
-        {carList}
-      </div>
-    </>
-  )
+    </div>
+  );
 }
 
 export default App
