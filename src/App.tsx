@@ -1,5 +1,13 @@
 import './App.css'
 
+//JS object 
+const car = {
+  brand: "Toyota",
+  model: "Corolla",
+  year: 2020
+}
+
+
 // Profile component
 function Profile() {
   return (
@@ -16,6 +24,10 @@ function App() {
     <>
     <div>
       <Profile />
+      <br />
+      {/* Js onject accessing */}
+      <h1>{car.brand} {car.model}</h1>
+      <h2>Year: {car.year}</h2>
     </div>
     </>
   )
