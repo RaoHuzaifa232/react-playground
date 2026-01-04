@@ -1,11 +1,20 @@
 import './App.css'
 
+
+function Profile() {
+  return (
+    <img
+      src="https://i.imgur.com/MK3eW3As.jpg"
+      alt="Katherine Johnson"
+    />
+  );
+}
+
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline text-center bg-blue-500">
-      Hello React!
-    </h1>
-
+    <div>
+      <Profile />
+    </div>
   )
 }
 
