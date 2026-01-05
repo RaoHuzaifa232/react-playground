@@ -42,6 +42,7 @@ const cars: Car[] = [
   },
 ];
 
+// Props destructuring in Avatar component
 function Avatar({ car, size }: { car: Car; size: number }) {
   return (
     <img
@@ -50,6 +51,18 @@ function Avatar({ car, size }: { car: Car; size: number }) {
       alt={car.model}
       width={size}
       height={size}
+    />
+  );
+}
+// Without destructuring
+function AvatarWithoutDestructing(props: { car: any; size: number }) {
+    return (
+    <img
+      className="rounded-lg shadow-md object-cover hover:scale-110 hover:shadow-2xl transition-all duration-300 ease-in-out cursor-pointer"
+      src={props.car.image}
+      alt={props.car.model}
+      width={props.size}
+      height={props.size}
     />
   );
 }
@@ -87,6 +100,7 @@ function App() {
   ));
 
   return (
+    <>
     // Jsx syntax
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-indigo-900 to-black p-8 transition-all duration-1000 hover:from-gray-800 hover:via-purple-900">
       <div className="max-w-7xl mx-auto">
@@ -105,8 +119,11 @@ function App() {
             {carList}
           </div>
         </div>
+        {/* Props without destructrinng */}
+        <AvatarWithoutDestructing car={car} size={100} />
       </div>
     </div>
+    </>
   );
 }
 
