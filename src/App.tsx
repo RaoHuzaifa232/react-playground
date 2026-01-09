@@ -43,7 +43,8 @@ const cars: Car[] = [
 ];
 
 // Props destructuring in Avatar component
-function Avatar({ car, size }: { car: Car; size: number }) {
+// Default value of size
+function Avatar({ car , size = 0 }: { car: Car; size: number }) {
   return (
     <img
       className="rounded-lg shadow-md object-cover hover:scale-110 hover:shadow-2xl transition-all duration-300 ease-in-out cursor-pointer"
@@ -55,7 +56,7 @@ function Avatar({ car, size }: { car: Car; size: number }) {
   );
 }
 // Without destructuring
-function AvatarWithoutDestructing(props: { car: any; size: number }) {
+function AvatarWithoutDestructing(props: { car:   Car; size: number }) {
     return (
     <img
       className="rounded-lg shadow-md object-cover hover:scale-110 hover:shadow-2xl transition-all duration-300 ease-in-out cursor-pointer"
