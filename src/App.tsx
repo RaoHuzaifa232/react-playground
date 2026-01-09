@@ -8,6 +8,13 @@ interface Car {
   image: string;
 }
 
+
+// Card component using props.children
+interface CardProps {
+  title: string;
+  children: React.ReactNode; // Type for children prop
+}
+
 const car: Car = {
   brand: "BMW",
   model: "M5",
@@ -133,14 +140,7 @@ function App() {
   );
 }
 
-// props children
-
-// Card component using props.children
-interface CardProps {
-  title: string;
-  children: React.ReactNode; // Type for children prop
-}
-
+// Props children example
 function Card({ title, children }: CardProps) {
   return (
     <div className="bg-white rounded-lg shadow-lg p-6">
