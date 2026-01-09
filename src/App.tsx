@@ -122,9 +122,52 @@ function App() {
         </div>
         {/* Props without destructrinng */}
         <AvatarWithoutDestructing car={car} size={100} />
+
+        {/* Card component example */}
+        <div className="mt-12">
+          <CardExample />
+          </div>
       </div>
     </div>
     </>
+  );
+}
+
+// props children
+
+// Card component using props.children
+interface CardProps {
+  title: string;
+  children: React.ReactNode; // Type for children prop
+}
+
+function Card({ title, children }: CardProps) {
+  return (
+    <div className="bg-white rounded-lg shadow-lg p-6">
+      <h3 className="text-xl font-bold text-gray-800 mb-4">{title}</h3>
+      <div className="text-gray-600">
+        {children}
+      </div>
+    </div>
+  );
+}
+
+// Example usage of Card component with children
+function CardExample() {
+  return (
+    <div className="space-y-4">
+      <Card title="About BMW">
+        <p>BMW M5 is a high-performance luxury sedan known for its power and precision.</p>
+      </Card>
+      
+      <Card title="Features">
+        <ul className="list-disc ml-5">
+          <li>Twin-turbo engine</li>
+          <li>Advanced suspension</li>
+          <li>Luxury interior</li>
+        </ul>
+      </Card>
+    </div>
   );
 }
 
