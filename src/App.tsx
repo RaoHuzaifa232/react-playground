@@ -108,12 +108,12 @@ function App() {
   ));
 
   return (
-    <>
     // Jsx syntax
+    <>
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-indigo-900 to-black p-8 transition-all duration-1000 hover:from-gray-800 hover:via-purple-900">
       <div className="max-w-7xl mx-auto">
         {/* Main Profile Section */}
-        <div className="mb-12">
+        <div className="mb-12"> .
           <Profile />
         </div>
 
