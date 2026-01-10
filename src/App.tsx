@@ -3,6 +3,7 @@ import { car, cars } from './data/cars';
 import { Avatar, AvatarWithoutDestructing } from './components/Avatar';
 import { Profile } from './components/Profile';
 import { CardExample } from './components/CardExample';
+import { Header } from './components/header';
 
 function App() {
   // Mapping through the cars array to create a list of car details
@@ -13,7 +14,7 @@ function App() {
     >
       <h3 className="text-xl font-bold text-gray-800 mb-4">
         {carItem.brand} {carItem.model}
-      </h3>
+      </h3> 
       {/* Passing props */}
       <Avatar car={carItem} size={80} />
       <p className="mt-4 text-lg text-gray-600">
@@ -25,6 +26,7 @@ function App() {
   return (
     // Jsx syntax
     <>
+    <Header variant='minimal' />
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-indigo-900 to-black p-8 transition-all duration-1000 hover:from-gray-800 hover:via-purple-900">
       <div className="max-w-7xl mx-auto">
         {/* Main Profile Section */}
