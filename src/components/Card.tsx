@@ -1,4 +1,4 @@
-import { CardProps } from "../types/car";
+import type { CardProps } from "../types/car";
 
 export function Card({ title, children }: CardProps) {
   return (
