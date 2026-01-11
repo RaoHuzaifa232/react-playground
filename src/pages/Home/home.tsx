@@ -35,9 +35,7 @@ export default function Home() {
             <div className="max-w-7xl mx-auto space-y-16">
                 {/* Main Profile Section */}
                 <section className="relative">
-                    <div className="bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/10 shadow-2xl">
-                        <Profile />
-                    </div>
+                    <Profile />
                 </section>
 
                 {/* Car List Section */}
