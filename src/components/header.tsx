@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 type HeaderVariant = 'default' | 'minimal' | 'compact';
 
@@ -28,9 +29,9 @@ export function Header({ variant = 'default' }: { variant?: HeaderVariant } = {}
 
                     {/* Desktop Navigation */}
                     <nav className="hidden md:flex gap-4 lg:gap-6 flex-wrap">
-                        <a href="#" className="hover:text-gray-300 transition-colors text-xs sm:text-sm">
+                        <Link to="/" className="hover:text-gray-300 transition-colors text-xs sm:text-sm">
                             Home
-                        </a>
+                        </Link>
                         <a href="#" className="hover:text-gray-300 transition-colors text-xs sm:text-sm">
                             Components
                         </a>
@@ -43,9 +44,9 @@ export function Header({ variant = 'default' }: { variant?: HeaderVariant } = {}
                         <a href="#" className="hover:text-gray-300 transition-colors text-xs sm:text-sm">
                             Props
                         </a>
-                        <a href="#" className="hover:text-gray-300 transition-colors text-xs sm:text-sm">
+                        <Link to="/events" className="hover:text-gray-300 transition-colors text-xs sm:text-sm">
                             Event
-                        </a>
+                        </Link>
                         <a href="#" className="hover:text-gray-300 transition-colors text-xs sm:text-sm">
                             Form
                         </a>
@@ -100,12 +101,9 @@ export function Header({ variant = 'default' }: { variant?: HeaderVariant } = {}
                 {/* Mobile Navigation Menu */}
                 {isMenuOpen && (
                     <nav className="md:hidden border-t border-gray-700 pt-4 pb-4 flex flex-col gap-3">
-                        <a
-                            href="#"
-                            className="block px-2 py-2 rounded hover:bg-gray-700 transition-colors"
-                        >
+                        <Link to="/" className="block px-2 py-2 rounded hover:bg-gray-700 transition-colors">
                             Home
-                        </a>
+                        </Link>
                         <a
                             href="#"
                             className="block px-2 py-2 rounded hover:bg-gray-700 transition-colors"
@@ -130,12 +128,9 @@ export function Header({ variant = 'default' }: { variant?: HeaderVariant } = {}
                         >
                             Props
                         </a>
-                        <a
-                            href="#"
-                            className="block px-2 py-2 rounded hover:bg-gray-700 transition-colors"
-                        >
+                        <Link to="/events" className="block px-2 py-2 rounded hover:bg-gray-700 transition-colors">
                             Event
-                        </a>
+                        </Link>
                         <a
                             href="#"
                             className="block px-2 py-2 rounded hover:bg-gray-700 transition-colors"
