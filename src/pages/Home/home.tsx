@@ -55,7 +55,7 @@ export default function Home() {
                             Featured Selection
                         </div>
                         <h3 className="text-3xl font-bold text-white mb-8">Highlight of the Week</h3>
-                        <div className="p-4 bg-white/5 rounded-full border border-white/10 shadow-[0_0_50px_-12px_rgba(99,102,241,0.5)] animate-pulse hover:animate-none transition-all">
+                        <div className="shadow-[0_0_50px_-12px_rgba(99,102,241,0.5)] animate-pulse hover:animate-none transition-all">
                             <AvatarWithoutDestructing car={car} size={150} />
                         </div>
                     </div>

@@ -8,11 +8,11 @@ interface AvatarProps {
 export function Avatar({ car, size = 0 }: AvatarProps) {
   return (
     <img
-      className="rounded-lg shadow-md object-cover hover:scale-110 hover:shadow-2xl transition-all duration-300 ease-in-out cursor-pointer"
+      className="rounded-2xl shadow-lg shadow-indigo-500/20 ring-2 ring-white/20 object-cover hover:scale-110 hover:shadow-2xl hover:ring-indigo-400 transition-all duration-300 ease-out cursor-pointer"
       src={car.image}
       alt={car.model}
       width={size}
-      height={size}
+      style={{ aspectRatio: '3/2', height: 'auto' }}
     />
   );
 }
@@ -20,11 +20,11 @@ export function Avatar({ car, size = 0 }: AvatarProps) {
 export function AvatarWithoutDestructing(props: { car: Car; size: number }) {
   return (
     <img
-      className="rounded-lg shadow-md object-cover hover:scale-110 hover:shadow-2xl transition-all duration-300 ease-in-out cursor-pointer"
+      className="rounded-2xl shadow-lg shadow-indigo-500/20 ring-2 ring-white/20 object-cover hover:scale-110 hover:shadow-2xl hover:ring-indigo-400 transition-all duration-300 ease-out cursor-pointer"
       src={props.car.image}
       alt={props.car.model}
       width={props.size}
-      height={props.size}
+      style={{ aspectRatio: '3/2', height: 'auto' }}
     />
   );
 }
