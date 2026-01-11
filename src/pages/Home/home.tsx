@@ -8,47 +8,67 @@ export default function Home() {
     const carList = cars.map((carItem, index) => (
         <div
             key={index}
-            className="bg-white rounded-lg shadow-lg p-6 hover:shadow-2xl hover:bg-indigo-50 transition-all duration-300 transform hover:scale-105 hover:-translate-y-2 cursor-pointer group"
+            className="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 shadow-xl transition-all duration-300 hover:bg-white/10 hover:-translate-y-2 hover:shadow-indigo-500/20"
         >
-            <h3 className="text-xl font-bold text-gray-800 mb-4">
-                {carItem.brand} {carItem.model}
-            </h3>
-            {/* Passing props */}
-            <Avatar car={carItem} size={80} />
-            <p className="mt-4 text-lg text-gray-600">
-                <span className="font-semibold text-indigo-600">Year:</span> {carItem.year}
-            </p>
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+            <div className="relative z-10">
+                <h3 className="text-2xl font-bold text-white mb-6 group-hover:text-indigo-300 transition-colors">
+                    {carItem.brand} {carItem.model}
+                </h3>
+
+                <div className="flex justify-center mb-6 transform group-hover:scale-105 transition-transform duration-300">
+                    <Avatar car={carItem} size={100} />
+                </div>
+
+                <div className="bg-black/20 rounded-xl p-3 text-center backdrop-blur-md border border-white/5">
+                    <p className="text-lg text-gray-300">
+                        <span className="font-semibold text-indigo-400">Year:</span> {carItem.year}
+                    </p>
+                </div>
+            </div>
         </div>
     ));
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-indigo-900 to-black p-8 transition-all duration-1000 hover:from-gray-800 hover:via-purple-900">
-            <div className="max-w-7xl mx-auto">
+        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-[#1a1c2e] to-black p-4 sm:p-8">
+            <div className="max-w-7xl mx-auto space-y-16">
                 {/* Main Profile Section */}
-                <div className="mb-12">
-                    <Profile />
-                </div>
+                <section className="relative">
+                    <div className="bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/10 shadow-2xl">
+                        <Profile />
+                    </div>
+                </section>
 
                 {/* Car List Section */}
-                <div className="mt-12">
-                    <h2 className="text-4xl font-bold text-white mb-8 hover:text-indigo-300 transition-colors duration-300">
-                        Our Car Collection
+                <section>
+                    <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent mb-12 text-center">
+                        Our Collection
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* Car list */}
                         {carList}
                     </div>
-                </div>
+                </section>
 
-                <div className="mt-12 flex flex-col items-center">
-                    <h3 className="text-2xl font-bold text-white mb-4">Featured Car (No Destructuring)</h3>
-                    <AvatarWithoutDestructing car={car} size={100} />
-                </div>
+                {/* Featured Car Section */}
+                <section className="relative overflow-hidden bg-gradient-to-r from-indigo-900/50 to-purple-900/50 rounded-3xl p-12 border border-white/10 backdrop-blur-md">
+                    <div className="flex flex-col items-center relative z-10">
+                        <div className="inline-block px-4 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-sm font-semibold mb-4 border border-indigo-500/30">
+                            Featured Selection
+                        </div>
+                        <h3 className="text-3xl font-bold text-white mb-8">Highlight of the Week</h3>
+                        <div className="p-4 bg-white/5 rounded-full border border-white/10 shadow-[0_0_50px_-12px_rgba(99,102,241,0.5)] animate-pulse hover:animate-none transition-all">
+                            <AvatarWithoutDestructing car={car} size={150} />
+                        </div>
+                    </div>
+                </section>
 
                 {/* Card component example */}
-                <div className="mt-12">
-                    <CardExample />
-                </div>
+                <section className="flex justify-center">
+                    <div className="transform hover:rotate-1 transition-transform duration-500">
+                        <CardExample />
+                    </div>
+                </section>
             </div>
         </div>
     );

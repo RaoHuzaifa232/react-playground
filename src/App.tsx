@@ -9,7 +9,7 @@ function App() {
     // Jsx syntax
     <>
       <BrowserRouter>
-        <Header variant='minimal' />
+        <Header variant='compact' />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/events" element={<Events />} />

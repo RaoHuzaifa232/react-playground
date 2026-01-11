@@ -6,71 +6,64 @@ type HeaderVariant = 'default' | 'minimal' | 'compact';
 export function Header({ variant = 'default' }: { variant?: HeaderVariant } = {}) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    // Modern glassmorphism styles
+    const baseStyles = 'backdrop-blur-md border-b transition-all duration-300 sticky top-0 z-50';
+
     const variantStyles = {
-        default: 'bg-gray-800',
-        minimal: 'bg-gray-900 border-b border-gray-700',
-        compact: 'bg-gray-700'
+        default: 'bg-gray-900/80 border-gray-800',
+        minimal: 'bg-white/5 border-white/10',
+        compact: 'bg-black/90 border-gray-800'
     };
 
     const titleStyles = {
-        default: 'text-2xl sm:text-3xl md:text-4xl',
-        minimal: 'text-xl sm:text-2xl md:text-3xl',
-        compact: 'text-lg sm:text-xl md:text-2xl'
+        default: 'text-2xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent',
+        minimal: 'text-xl font-semibold text-white',
+        compact: 'text-lg font-medium text-gray-200'
     };
 
+    const linkStyles = "text-sm font-medium transition-all duration-200 hover:text-indigo-400 relative group";
+
     return (
-        <header className={`${variantStyles[variant]} text-white shadow-md transition-all duration-300`}>
+        <header className={`${baseStyles} ${variantStyles[variant]}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between items-center py-4 sm:py-6">
+                <div className="flex justify-between items-center h-16 sm:h-20">
                     {/* Logo/Title */}
-                    <h1 className={`${titleStyles[variant]} font-bold truncate`}>
-                        React Practice Ground
-                    </h1>
+                    <div className="flex-shrink-0 flex items-center">
+                        <Link to="/" className={`${titleStyles[variant]} tracking-tight hover:opacity-80 transition-opacity`}>
+                            React Practice
+                        </Link>
+                    </div>
 
                     {/* Desktop Navigation */}
-                    <nav className="hidden md:flex gap-4 lg:gap-6 flex-wrap">
-                        <Link to="/" className="hover:text-gray-300 transition-colors text-xs sm:text-sm">
-                            Home
-                        </Link>
-                        <a href="#" className="hover:text-gray-300 transition-colors text-xs sm:text-sm">
-                            Components
-                        </a>
-                        <a href="#" className="hover:text-gray-300 transition-colors text-xs sm:text-sm">
-                            Hooks
-                        </a>
-                        <a href="#" className="hover:text-gray-300 transition-colors text-xs sm:text-sm">
-                            State
-                        </a>
-                        <a href="#" className="hover:text-gray-300 transition-colors text-xs sm:text-sm">
-                            Props
-                        </a>
-                        <Link to="/events" className="hover:text-gray-300 transition-colors text-xs sm:text-sm">
-                            Event
-                        </Link>
-                        <a href="#" className="hover:text-gray-300 transition-colors text-xs sm:text-sm">
-                            Form
-                        </a>
-                        <a href="#" className="hover:text-gray-300 transition-colors text-xs sm:text-sm">
-                            Router
-                        </a>
-                        <a href="#" className="hover:text-gray-300 transition-colors text-xs sm:text-sm">
-                            Context
-                        </a>
-                        <a href="#" className="hover:text-gray-300 transition-colors text-xs sm:text-sm">
-                            Custom Hooks
-                        </a>
-                        <a href="#" className="hover:text-gray-300 transition-colors text-xs sm:text-sm">
-                            Performance
-                        </a>
-                        <a href="#" className="hover:text-gray-300 transition-colors text-xs sm:text-sm">
-                            API
-                        </a>
+                    <nav className="hidden md:flex gap-8 items-center">
+                        {[
+                            { name: 'Home', path: '/' },
+                            { name: 'Events', path: '/events' },
+                            { name: 'Components', path: '#' },
+                            { name: 'Hooks', path: '#' },
+                        ].map((item) => (
+                            <Link
+                                key={item.name}
+                                to={item.path}
+                                className={`${linkStyles} text-gray-300`}
+                            >
+                                {item.name}
+                                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-indigo-500 transition-all duration-300 group-hover:w-full"></span>
+                            </Link>
+                        ))}
                     </nav>
+
+                    {/* Right Side Actions (Optional placeholder) */}
+                    <div className="hidden md:flex items-center gap-4">
+                        <button className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-full hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-500/20">
+                            Get Started
+                        </button>
+                    </div>
 
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="md:hidden p-2 rounded hover:bg-gray-700 transition-colors"
+                        className="md:hidden p-2 rounded-full text-gray-300 hover:bg-white/10 transition-colors focus:outline-none"
                         aria-label="Toggle menu"
                     >
                         <svg
@@ -80,95 +73,34 @@ export function Header({ variant = 'default' }: { variant?: HeaderVariant } = {}
                             viewBox="0 0 24 24"
                         >
                             {isMenuOpen ? (
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M6 18L18 6M6 6l12 12"
-                                />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             ) : (
-                                <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M4 6h16M4 12h16M4 18h16"
-                                />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                             )}
                         </svg>
                     </button>
                 </div>
 
                 {/* Mobile Navigation Menu */}
-                {isMenuOpen && (
-                    <nav className="md:hidden border-t border-gray-700 pt-4 pb-4 flex flex-col gap-3">
-                        <Link to="/" className="block px-2 py-2 rounded hover:bg-gray-700 transition-colors">
-                            Home
-                        </Link>
-                        <a
-                            href="#"
-                            className="block px-2 py-2 rounded hover:bg-gray-700 transition-colors"
-                        >
-                            Components
-                        </a>
-                        <a
-                            href="#"
-                            className="block px-2 py-2 rounded hover:bg-gray-700 transition-colors"
-                        >
-                            Hooks
-                        </a>
-                        <a
-                            href="#"
-                            className="block px-2 py-2 rounded hover:bg-gray-700 transition-colors"
-                        >
-                            State
-                        </a>
-                        <a
-                            href="#"
-                            className="block px-2 py-2 rounded hover:bg-gray-700 transition-colors"
-                        >
-                            Props
-                        </a>
-                        <Link to="/events" className="block px-2 py-2 rounded hover:bg-gray-700 transition-colors">
-                            Event
-                        </Link>
-                        <a
-                            href="#"
-                            className="block px-2 py-2 rounded hover:bg-gray-700 transition-colors"
-                        >
-                            Form
-                        </a>
-                        <a
-                            href="#"
-                            className="block px-2 py-2 rounded hover:bg-gray-700 transition-colors"
-                        >
-                            Router
-                        </a>
-                        <a
-                            href="#"
-                            className="block px-2 py-2 rounded hover:bg-gray-700 transition-colors"
-                        >
-                            Context
-                        </a>
-                        <a
-                            href="#"
-                            className="block px-2 py-2 rounded hover:bg-gray-700 transition-colors"
-                        >
-                            Custom Hooks
-                        </a>
-                        <a
-                            href="#"
-                            className="block px-2 py-2 rounded hover:bg-gray-700 transition-colors"
-                        >
-                            Performance
-                        </a>
-                        <a
-                            href="#"
-                            className="block px-2 py-2 rounded hover:bg-gray-700 transition-colors"
-                        >
-                            API
-                        </a>
+                <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <nav className="px-2 pt-2 pb-6 space-y-1 bg-gray-900/50 backdrop-blur-xl rounded-b-2xl border-t border-gray-800">
+                        {[
+                            { name: 'Home', path: '/' },
+                            { name: 'Events', path: '/events' },
+                            { name: 'Components', path: '#' },
+                            { name: 'Hooks', path: '#' },
+                        ].map((item) => (
+                            <Link
+                                key={item.name}
+                                to={item.path}
+                                className="block px-4 py-3 rounded-xl text-base font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all"
+                                onClick={() => setIsMenuOpen(false)}
+                            >
+                                {item.name}
+                            </Link>
+                        ))}
                     </nav>
-                )}
+                </div>
             </div>
         </header>
     );
