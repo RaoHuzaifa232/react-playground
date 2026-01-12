@@ -41,7 +41,7 @@ export function Header({ variant = 'default' }: { variant?: HeaderVariant } = {}
                             { name: 'Home', path: '/' },
                             { name: 'Events', path: '/events' },
                             { name: 'Components', path: '#' },
-                            { name: 'Hooks', path: '#' },
+                            { name: 'Hooks', path: '/hooks' },
                         ].map((item) => (
                             <Link
                                 key={item.name}
@@ -90,7 +90,7 @@ export function Header({ variant = 'default' }: { variant?: HeaderVariant } = {}
                             { name: 'Home', path: '/' },
                             { name: 'Events', path: '/events' },
                             { name: 'Components', path: '#' },
-                            { name: 'Hooks', path: '#' },
+                            { name: 'Hooks', path: '/hooks' },
                         ].map((item) => (
                             <Link
                                 key={item.name}
