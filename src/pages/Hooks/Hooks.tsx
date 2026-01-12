@@ -4,7 +4,9 @@ export default function Hooks() {
     const [count, setCount] = useState(0);
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white p-8">
-            <h1>Hooks</h1>
+            <h1 className="text-6xl font-extrabold text-center mb-12 tracking-tight bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent drop-shadow-sm">
+                Hooks
+            </h1>
             <div className="max-w-4xl mx-auto">
                 <div className="relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 sm:p-12 shadow-2xl">
                     {/* Background decorations */}
@@ -13,7 +15,7 @@ export default function Hooks() {
 
                     <div className="relative z-10">
                         <h1 className="text-5xl font-bold mb-8 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-                            Use State Hook
+                            useState
                         </h1>
 
                         <div className="flex flex-col items-center justify-center space-y-8 py-12 bg-black/20 rounded-2xl border border-white/5">
