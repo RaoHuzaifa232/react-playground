@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 type HeaderVariant = 'default' | 'minimal' | 'compact';
 
 export function Header({ variant = 'default' }: { variant?: HeaderVariant } = {}) {
+    // React Hook (useState) to manage menu state
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     // Modern glassmorphism styles
@@ -62,6 +63,7 @@ export function Header({ variant = 'default' }: { variant?: HeaderVariant } = {}
 
                     {/* Mobile Menu Button */}
                     <button
+                        // onClick handler to toggle menu state
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                         className="md:hidden p-2 rounded-full text-gray-300 hover:bg-white/10 transition-colors focus:outline-none"
                         aria-label="Toggle menu"
