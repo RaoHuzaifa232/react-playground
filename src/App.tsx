@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { Header } from './components/header';
+import { Layout } from './components/Layout';
 import Events from './pages/Events/Events';
 import Home from './pages/Home/home';
 import Hooks from './pages/Hooks/Hooks';
@@ -9,11 +9,13 @@ function App() {
     // Jsx syntax
     <>
       <BrowserRouter>
-        <Header variant='compact' />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/hooks" element={<Hooks />} />
+          {/* React Outlet using element "shared layout for all child routes."  */}
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/hooks" element={<Hooks />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>
