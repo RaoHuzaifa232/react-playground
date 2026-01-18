@@ -1,3 +1,4 @@
+import { Link, Outlet } from "react-router-dom";
 import { Avatar, AvatarWithoutDestructing } from "../../components/Avatar";
 import { CardExample } from "../../components/CardExample";
 import { Profile } from "../../components/Profile";
@@ -67,6 +68,46 @@ export default function Home() {
                         <CardExample />
                     </div>
                 </section>
+
+                {/* Car Brands Navigation */}
+                <section className="bg-gradient-to-r from-indigo-900/30 to-purple-900/30 rounded-2xl p-8 border border-white/10 backdrop-blur-md">
+                    <h3 className="text-2xl font-bold text-white mb-6 text-center">Explore Our Brands</h3>
+                    <nav className="flex flex-wrap justify-center gap-4">
+                        <Link 
+                            to="/bmw" 
+                            className="px-6 py-3 bg-blue-600/80 hover:bg-blue-500 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/50"
+                        >
+                            BMW
+                        </Link>
+                        <Link 
+                            to="/toyota" 
+                            className="px-6 py-3 bg-red-600/80 hover:bg-red-500 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-red-500/50"
+                        >
+                            Toyota
+                        </Link>
+                        <Link 
+                            to="/honda" 
+                            className="px-6 py-3 bg-gray-600/80 hover:bg-gray-500 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gray-500/50"
+                        >
+                            Honda
+                        </Link>
+                        <Link 
+                            to="/ford" 
+                            className="px-6 py-3 bg-blue-800/80 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-700/50"
+                        >
+                            Ford
+                        </Link>
+                        <Link 
+                            to="/tesla" 
+                            className="px-6 py-3 bg-purple-600/80 hover:bg-purple-500 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50"
+                        >
+                            Tesla
+                        </Link>
+                    </nav>
+                </section>
+
+                {/* Outlet */}
+                <Outlet />
             </div>
         </div>
     );
