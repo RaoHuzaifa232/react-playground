@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import './App.css';
 
 // Existing pages
 import Home from './pages/Home/home';
@@ -58,7 +57,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/hooks" element={<Hooks />} />
           <Route path="/events" element={<Events />} />
-          
+
           {/* Advanced Learning Routes */}
           <Route path="/advanced-learning" element={<AdvancedLearning />} />
           <Route path="/advanced-hooks" element={<AdvancedHooks />} />
