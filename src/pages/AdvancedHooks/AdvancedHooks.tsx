@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback, useRef, useReducer } from 'react';
+import { useState, useEffect, useMemo, useCallback, useRef, useReducer, memo } from 'react';
 
 // ============================================
 // 1. useEffect - Side Effects & Lifecycle
@@ -110,14 +110,16 @@ interface ChildProps {
   name: string;
 }
 
-const ChildComponent = ({ onClick, name }: ChildProps) => {
+const ChildComponent = memo(({ onClick, name }: ChildProps) => {
   console.log(`Child ${name} rendered`);
   return (
     <button onClick={onClick} className="bg-purple-500 text-white px-4 py-2 rounded">
       Click {name}
     </button>
   );
-};
+});
+
+ChildComponent.displayName = 'ChildComponent';
 
 export function UseCallbackExample() {
   const [count, setCount] = useState(0);

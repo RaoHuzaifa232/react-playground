@@ -57,7 +57,10 @@ export function useFetch<T = unknown>(
     return () => {
       cancelled = true;
     };
-  }, [url, JSON.stringify(options)]);
+  // Note: options is intentionally excluded from deps to avoid infinite loops.
+  // If you need to refetch when options change, memoize options with useMemo at the call site.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [url]);
 
   return { data, loading, error };
 }

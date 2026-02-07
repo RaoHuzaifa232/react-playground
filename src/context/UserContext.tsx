@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, useMemo } from 'react';
+import type { ReactNode } from 'react';
 
 interface User {
   id: number;
@@ -18,23 +19,23 @@ const UserContext = createContext<UserContextType | undefined>(undefined);
 export function UserProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
 
-  const login = (userData: User) => {
+  const login = useCallback((userData: User) => {
     setUser(userData);
-  };
+  }, []);
 
-  const logout = () => {
+  const logout = useCallback(() => {
     setUser(null);
-  };
+  }, []);
+
+  const value = useMemo(() => ({
+    user,
+    login,
+    logout,
+    isAuthenticated: user !== null,
+  }), [user, login, logout]);
 
   return (
-    <UserContext.Provider
-      value={{
-        user,
-        login,
-        logout,
-        isAuthenticated: user !== null,
-      }}
-    >
+    <UserContext.Provider value={value}>
       {children}
     </UserContext.Provider>
   );
